@@ -7,7 +7,7 @@ import * as THREE from 'three';
 import { inSphere } from 'maath/random';
 
 function FallingLeaves() {
-    const ref = useRef<any>();
+    const ref = useRef<THREE.Points | null>(null);
     const count = 1000;
     const [positions] = useState(() => inSphere(new Float32Array(count * 3), { radius: 5 }));
 
