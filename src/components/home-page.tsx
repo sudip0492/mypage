@@ -13,8 +13,8 @@ export function HomePage() {
       </div>
       <div className="container mx-auto px-4">
         <Passion />
-        <Blog />
-        <Testimonials />
+        {/* <Blog /> */}
+        {/* <Testimonials /> */}
       </div>
     </div>
   );
