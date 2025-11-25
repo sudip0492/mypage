@@ -18,8 +18,11 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sudipta Maity - Portfolio",
+  title: "Sudipta Maity",
   description: "A portfolio of my work as a Full Stack Developer, Graphic Designer, and GenAI Engineer.",
+  icons: {
+    icon: "/dp.jpeg",
+  },
 };
 
 export default function RootLayout({
