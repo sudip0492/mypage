@@ -18,7 +18,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Post } from "lucide-react";
+import { FileText } from "lucide-react";
 import { ADMIN_EMAIL } from "@/lib/constants";
 
 // For slug generation
@@ -111,7 +111,7 @@ export default function CreatePostPage() {
   return (
     <div className="container mx-auto px-4 py-20">
       <h1 className="text-3xl font-bold text-center flex items-center justify-center gap-2">
-        <Post size={30} /> Create New Blog Post
+        <FileText size={30} /> Create New Blog Post
       </h1>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="mt-8 space-y-8 max-w-3xl mx-auto">
