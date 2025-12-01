@@ -3,7 +3,9 @@
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { useEffect, useState } from "react";
-import { Heading } from "@tiptap/extension-heading";
+import Image from "@tiptap/extension-image";
+import TextAlign from "@tiptap/extension-text-align";
+import Link from "@tiptap/extension-link";
 
 interface TiptapRenderProps {
   content: string; // JSON string from Tiptap editor
@@ -15,17 +17,23 @@ export function TiptapRender({ content }: TiptapRenderProps) {
   const editor = useEditor({
     extensions: [
       StarterKit,
-      Heading.configure({
-        levels: [1, 2, 3],
+      Image,
+      TextAlign.configure({
+        types: ["heading", "paragraph"],
+      }),
+      Link.configure({
+        openOnClick: false,
+        autolink: true,
       }),
     ],
-    content: JSON.parse(content),
-    editable: false, // Make it read-only
+    content: content || { type: 'doc', content: [{ type: 'paragraph' }] },
+    editable: false,
     editorProps: {
       attributes: {
         class: "prose dark:prose-invert max-w-none p-4",
       },
     },
+    immediatelyRender: false,
   });
 
   useEffect(() => {

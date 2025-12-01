@@ -1,5 +1,5 @@
-import { Badge } from "./ui/badge";
 import { TypeAnimation } from "react-type-animation";
+import { Socials } from "./socials";
 
 export function Hero() {
   return (
@@ -26,12 +26,7 @@ export function Hero() {
           className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8"
           repeat={Infinity}
         />
-        <div className="flex flex-wrap justify-center gap-4 mt-8">
-          <Badge variant="secondary">Full Stack Web Developer</Badge>
-          <Badge variant="secondary">Graphic Designer</Badge>
-          <Badge variant="secondary">Software Engineer</Badge>
-          <Badge variant="secondary">GenAI Engineer</Badge>
-        </div>
+        <Socials />
       </div>
     </div>
   );

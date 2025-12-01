@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabaseClient";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -21,6 +21,8 @@ export default function SignupPage() {
     setLoading(true);
     setError(null);
 
+    const supabase = createClient();
+
     const { error } = await supabase.auth.signUp({
       email,
       password,
@@ -29,7 +31,7 @@ export default function SignupPage() {
     if (error) {
       setError(error.message);
     } else {
-      router.push("/admin/dashboard"); // Redirect to a protected admin dashboard
+      router.push("/admin/editor"); // Redirect to admin editor
     }
     setLoading(false);
   }

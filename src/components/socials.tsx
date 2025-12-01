@@ -2,6 +2,7 @@
 
 import {
   FaFacebook,
+  FaGithub,
   FaInstagram,
   FaLinkedin,
 } from "react-icons/fa";
@@ -14,6 +15,7 @@ const socialIcons = {
   instagram: FaInstagram,
   linkedin: FaLinkedin,
   x: FaXTwitter,
+  github: FaGithub,
 };
 
 const socialColors: { [key: string]: string } = {
@@ -21,6 +23,7 @@ const socialColors: { [key: string]: string } = {
   instagram: "text-pink-500",
   linkedin: "text-blue-700",
   x: "text-gray-300",
+  github: "text-gray-400",
 };
 
 export function Socials() {
