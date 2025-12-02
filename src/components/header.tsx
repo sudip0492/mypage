@@ -22,7 +22,7 @@ export function Header() {
   ];
 
   return (
-    <header className="p-4 flex justify-between items-center sticky top-0 bg-background/80 backdrop-blur-md z-20">
+    <header className="p-4 flex justify-between items-center sticky top-0 z-10">
       <Link href="/" className="text-2xl font-bold">
         <img src="/dp.jpeg" alt="Sudipta Maity" className="h-8 w-8 rounded-full object-cover" />
       </Link>

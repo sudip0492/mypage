@@ -21,9 +21,9 @@ export function Hero() {
             "I am a GenAI Engineer.",
             1000,
           ]}
-          wrapper="p"
+          wrapper="span"
           speed={50}
-          className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8"
+          className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-8 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]"
           repeat={Infinity}
         />
         <Socials />

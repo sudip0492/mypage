@@ -1,20 +1,15 @@
 import type { Metadata } from "next";
-import { Roboto, Roboto_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { PageTransition } from "@/components/page-transition";
-import { LeafEffectCanvas } from "@/components/leaf-effect";
+import { StarfieldCanvas } from "@/components/starfield-effect";
 
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-roboto",
-});
-const robotoMono = Roboto_Mono({
-  subsets: ["latin"],
-  variable: "--font-roboto-mono",
+const scienceGothic = localFont({
+  src: "../../public/fonts/ScienceGothic.ttf",
+  variable: "--font-science-gothic",
 });
 
 export const metadata: Metadata = {
@@ -32,13 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${roboto.variable} ${robotoMono.variable}`}>
+      <body className={`${scienceGothic.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           disableTransitionOnChange
         >
-          <LeafEffectCanvas />
+                    <StarfieldCanvas />
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow">
