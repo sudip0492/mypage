@@ -2,16 +2,12 @@
 
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Home, User, Briefcase, Mail, BrainCircuit, Newspaper, Menu } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "./ui/dropdown-menu";
+import { Home, User, Briefcase, Mail, BrainCircuit, Newspaper } from "lucide-react";
 
 export function Header() {
+  const pathname = usePathname();
   const navItems = [
     { href: "/", label: "Home", icon: Home },
     { href: "/about", label: "About", icon: User },
@@ -22,44 +18,28 @@ export function Header() {
   ];
 
   return (
-    <header className="p-4 flex justify-between items-center sticky top-0 z-10">
+    <header className="p-4 flex justify-between items-center fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md">
       <Link href="/" className="text-2xl font-bold">
         <img src="/dp.jpeg" alt="Sudipta Maity" className="h-8 w-8 rounded-full object-cover" />
       </Link>
-      <nav className="hidden md:flex gap-4">
-        {navItems.map((item) => (
-          <Link key={item.href} href={item.href} passHref>
-            <motion.div whileHover={{ scale: 1.1, y: -2 }}>
-              <Button variant="ghost" className="flex items-center gap-2">
-                <item.icon size={18} />
-                {item.label}
-              </Button>
-            </motion.div>
-          </Link>
-        ))}
+      <nav className="flex gap-2 md:gap-4">
+        {navItems.map((item) => {
+          const isActive = pathname === item.href;
+          return (
+            <Link key={item.href} href={item.href} passHref>
+              <motion.div whileHover={{ scale: 1.1, y: -2 }} whileTap={{ scale: 0.9 }}>
+                <Button 
+                  variant={isActive ? "secondary" : "ghost"} 
+                  className={`flex items-center gap-2 px-3 md:px-4 ${isActive ? "bg-accent text-accent-foreground" : ""}`}
+                >
+                  <item.icon size={20} />
+                  <span className="hidden md:inline">{item.label}</span>
+                </Button>
+              </motion.div>
+            </Link>
+          );
+        })}
       </nav>
-
-      {/* Mobile Navigation */}
-      <div className="md:hidden">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="icon">
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Toggle navigation menu</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {navItems.map((item) => (
-              <DropdownMenuItem key={item.href} asChild>
-                <Link href={item.href} className="flex items-center gap-2">
-                  <item.icon className="h-4 w-4" />
-                  <span>{item.label}</span>
-                </Link>
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
     </header>
   );
 }

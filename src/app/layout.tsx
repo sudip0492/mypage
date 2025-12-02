@@ -36,7 +36,7 @@ export default function RootLayout({
                     <StarfieldCanvas />
           <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex-grow">
+            <main className="flex-grow pt-20">
               <PageTransition>{children}</PageTransition>
             </main>
             <Footer />
