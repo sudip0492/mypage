@@ -33,7 +33,7 @@ export default function RootLayout({
           defaultTheme="dark"
           disableTransitionOnChange
         >
-                    <StarfieldCanvas />
+          <StarfieldCanvas />
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow pt-20">

@@ -4,8 +4,13 @@ import { Hero } from "./hero";
 import { Passion } from "./passion";
 import { Blog } from "./blog";
 import { Testimonials } from "./testimonials";
+import { type Post } from "@/types";
 
-export function HomePage() {
+interface HomePageProps {
+  posts: Post[];
+}
+
+export function HomePage({ posts }: HomePageProps) {
   return (
     <div>
       <div className="relative h-screen flex items-center justify-center">
@@ -13,8 +18,8 @@ export function HomePage() {
       </div>
       <div className="container mx-auto px-4">
         <Passion />
-        {/* <Blog /> */}
-        {/* <Testimonials /> */}
+        <Blog posts={posts} />
+        <Testimonials />
       </div>
     </div>
   );

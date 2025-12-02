@@ -8,6 +8,7 @@ import { Home, User, Briefcase, Mail, BrainCircuit, Newspaper } from "lucide-rea
 
 export function Header() {
   const pathname = usePathname();
+
   const navItems = [
     { href: "/", label: "Home", icon: Home },
     { href: "/about", label: "About", icon: User },

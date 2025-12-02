@@ -14,9 +14,11 @@ function Starfield() {
     useFrame((state, delta) => {
         if (ref.current) {
             const positions = ref.current.geometry.attributes.position.array;
+            const speed = 0.5; // High speed for warp
+
             for (let i = 0; i < count * 3; i += 3) {
                 // Move stars towards the camera
-                positions[i + 2] += delta * 0.5;
+                positions[i + 2] += delta * speed;
 
                 // Reset when they go past the camera
                 if (positions[i + 2] > 5) {
@@ -26,6 +28,9 @@ function Starfield() {
                 }
             }
             ref.current.geometry.attributes.position.needsUpdate = true;
+            
+            // Warp visual effect: stretch stars
+            ref.current.scale.z = 1; // Normal
         }
     });
 
