@@ -3,7 +3,6 @@
 import { Hero } from "./hero";
 import { Passion } from "./passion";
 import { Blog } from "./blog";
-import { Testimonials } from "./testimonials";
 import { type Post } from "@/types";
 
 interface HomePageProps {
@@ -19,7 +18,6 @@ export function HomePage({ posts }: HomePageProps) {
       <div className="container mx-auto px-4">
         <Passion />
         <Blog posts={posts} />
-        <Testimonials />
       </div>
     </div>
   );
