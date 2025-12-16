@@ -1,24 +1,48 @@
 "use client";
 
-import { useState, useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { useState, useRef, useEffect } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 import { inSphere } from 'maath/random';
 
 function Starfield() {
     const ref = useRef<THREE.Points | null>(null);
-    const count = 5000;
+    const count = 2000;
     const [positions] = useState(() => inSphere(new Float32Array(count * 3), { radius: 5 }) as Float32Array);
+    const { gl, camera, size } = useThree();
+
+    // Handle visibility changes and ensure proper canvas state
+    useEffect(() => {
+        const handleVisibilityChange = () => {
+            if (!document.hidden && gl && camera) {
+                // Force a resize when tab becomes visible
+                gl.setSize(size.width, size.height);
+                camera.aspect = size.width / size.height;
+                camera.updateProjectionMatrix();
+                gl.setPixelRatio(window.devicePixelRatio);
+            }
+        };
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        window.addEventListener('focus', handleVisibilityChange);
+
+        return () => {
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+            window.removeEventListener('focus', handleVisibilityChange);
+        };
+    }, [gl, camera, size]);
 
     useFrame((state, delta) => {
         if (ref.current) {
+            // Cap delta to prevent large jumps when tab becomes visible again
+            const cappedDelta = Math.min(delta, 0.1);
             const positions = ref.current.geometry.attributes.position.array;
-            const speed = 0.5; // High speed for warp
+            const speed = 0.5;
 
             for (let i = 0; i < count * 3; i += 3) {
                 // Move stars towards the camera
-                positions[i + 2] += delta * speed;
+                positions[i + 2] += cappedDelta * speed;
 
                 // Reset when they go past the camera
                 if (positions[i + 2] > 5) {
@@ -28,9 +52,9 @@ function Starfield() {
                 }
             }
             ref.current.geometry.attributes.position.needsUpdate = true;
-            
+
             // Warp visual effect: stretch stars
-            ref.current.scale.z = 1; // Normal
+            ref.current.scale.z = 1;
         }
     });
 
@@ -51,7 +75,16 @@ function Starfield() {
 export function StarfieldCanvas() {
     return (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, pointerEvents: 'none' }}>
-            <Canvas camera={{ position: [0, 0, 5] }}>
+            <Canvas
+                camera={{ position: [0, 0, 5] }}
+                frameloop="always"
+                dpr={[1, 2]}
+                gl={{
+                    antialias: false,
+                    alpha: true,
+                    powerPreference: "high-performance"
+                }}
+            >
                 <Starfield />
             </Canvas>
         </div>

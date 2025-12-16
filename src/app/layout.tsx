@@ -14,7 +14,7 @@ const scienceGothic = localFont({
 
 export const metadata: Metadata = {
   title: "Sudipta Maity",
-  description: "A portfolio of my work as a Full Stack Developer, Graphic Designer, and GenAI Engineer.",
+  description: "Portfolio of Sudipta Maity - Software Developer, Web Developer, and Mobile Developer specializing in full-stack applications.",
   icons: {
     icon: "/dp.jpeg",
   },
@@ -26,17 +26,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${scienceGothic.variable} font-sans`}>
+    <html lang="en" suppressHydrationWarning className="overflow-hidden">
+      <body className={`${scienceGothic.variable} font-sans overflow-hidden h-screen`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           disableTransitionOnChange
         >
           <StarfieldCanvas />
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col h-screen overflow-hidden">
             <Header />
-            <main className="flex-grow pt-20">
+            <main className="flex-grow pt-20 overflow-hidden">
               <PageTransition>{children}</PageTransition>
             </main>
             <Footer />
