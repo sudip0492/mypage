@@ -18,7 +18,10 @@ function Starfield() {
             if (!document.hidden && gl && camera) {
                 // Force a resize when tab becomes visible
                 gl.setSize(size.width, size.height);
-                camera.aspect = size.width / size.height;
+                // Only update aspect if it's a PerspectiveCamera
+                if ('aspect' in camera) {
+                    camera.aspect = size.width / size.height;
+                }
                 camera.updateProjectionMatrix();
                 gl.setPixelRatio(window.devicePixelRatio);
             }
