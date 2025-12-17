@@ -14,7 +14,7 @@ const scienceGothic = localFont({
 
 export const metadata: Metadata = {
   title: "Sudipta Maity",
-  description: "Portfolio of Sudipta Maity - Software Developer, Web Developer, and Mobile Developer specializing in full-stack applications.",
+  description: "Portfolio of Sudipta Maity - Software Engineer, Web Developer, and Mobile Developer specializing in full-stack applications.",
   icons: {
     icon: "/dp.jpeg",
   },

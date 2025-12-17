@@ -9,7 +9,7 @@ interface HomePageProps {
 
 export function HomePage({ posts }: HomePageProps) {
   return (
-    <div className="h-screen w-screen overflow-hidden flex items-center justify-center">
+    <div className="h-full w-full overflow-hidden">
       <Hero />
     </div>
   );

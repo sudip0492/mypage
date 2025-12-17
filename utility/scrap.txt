@@ -1,0 +1,19 @@
+in my current company tejas networks i work as a software engineer who designes and work on software of network components.
+till now i have worked on telecom wireline products that includes features such as : 
+GPON , L2 Layer in OEM , EVC , IEEE standard ports, LAG , ERPS , QoS etc.
+i am expert in system designing in c++ and using linux system.
+
+
+based on this add a skill group in my page. in all home page , about page and skill page.
+
+
+ passionate and vercetile creator : make simple white text , remove blue text color\
+  at tejas netwowrks , i am a network engineer where i work on ... continue \
+  make network engineer in purple color \
+  In home screen , remove these 4 skills completely, online keep my name and social links , adjust the space usage so it looks stylish and clean in all resolutions\
+   
+
+   =========
+
+   home page looks empty , do one thing shift the content of about page to home page itself 
+   in about me , talk more about what i like and do , and add my work experience timeline there

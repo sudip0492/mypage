@@ -8,7 +8,7 @@ import { inSphere } from 'maath/random';
 
 function Starfield() {
     const ref = useRef<THREE.Points | null>(null);
-    const count = 2000;
+    const count = 1000;
     const [positions] = useState(() => inSphere(new Float32Array(count * 3), { radius: 5 }) as Float32Array);
     const { gl, camera, size } = useThree();
 

@@ -148,6 +148,38 @@
   }
 }
 
+@keyframes flowing-gradient {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes rgb-border {
+  0% {
+    border-color: #3b82f6;
+    box-shadow: 0 0 20px #3b82f6;
+  }
+  25% {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 20px #8b5cf6;
+  }
+  50% {
+    border-color: #ec4899;
+    box-shadow: 0 0 20px #ec4899;
+  }
+  75% {
+    border-color: #06b6d4;
+    box-shadow: 0 0 20px #06b6d4;
+  }
+  100% {
+    border-color: #3b82f6;
+    box-shadow: 0 0 20px #3b82f6;
+  }
+}
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
@@ -194,6 +226,10 @@
     background-size: 200% 200%;
   }
 
+  .animate-flowing-gradient {
+    animation: flowing-gradient 3s linear infinite;
+  }
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
@@ -211,6 +247,23 @@
     );
     background-size: 1000px 100%;
     animation: shimmer 3s infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+
+  .animate-rgb-border {
+    animation: rgb-border 3s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   /* Custom scrollbar */

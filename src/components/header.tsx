@@ -3,18 +3,10 @@
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { Home, User, Briefcase, Mail, BrainCircuit, Newspaper } from "lucide-react";
-import { ScrollProgress } from "./scroll-progress";
 
 export function Header() {
   const pathname = usePathname();
-  const { scrollY } = useScroll();
-  const headerBackground = useTransform(
-    scrollY,
-    [0, 100],
-    ["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0.3)"]
-  );
 
   const navItems = [
     { href: "/", label: "Home", icon: Home },
@@ -27,32 +19,23 @@ export function Header() {
 
   return (
     <>
-      <ScrollProgress />
-      <motion.header
-        style={{ backgroundColor: headerBackground }}
-        className="p-4 flex justify-between items-center fixed top-0 left-0 right-0 z-50 backdrop-blur-sm"
+      <header className="p-4 flex justify-between items-center fixed top-0 left-0 right-0 z-50 backdrop-blur-sm bg-black/30"
       >
         <Link href="/" className="relative group">
-          <motion.div
-            whileHover={{ scale: 1.1, rotate: 360 }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="transition-transform duration-300 hover:scale-110">
             <img
               src="/dp.jpeg"
               alt="Sudipta Maity"
               className="h-10 w-10 rounded-full object-cover ring-2 ring-purple-500/50 group-hover:ring-purple-500 transition-all"
             />
-          </motion.div>
+          </div>
         </Link>
         <nav className="flex gap-2 md:gap-3">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
               <Link key={item.href} href={item.href} passHref>
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                <div className="transition-transform duration-200 hover:scale-105 hover:-translate-y-0.5 active:scale-95">
                   <Button
                     variant={isActive ? "secondary" : "ghost"}
                     className={`
@@ -66,12 +49,12 @@ export function Header() {
                     <item.icon size={18} />
                     <span className="hidden md:inline">{item.label}</span>
                   </Button>
-                </motion.div>
+                </div>
               </Link>
             );
           })}
         </nav>
-      </motion.header>
+      </header>
     </>
   );
 }
