@@ -26,17 +26,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="overflow-hidden">
-      <body className={`${scienceGothic.variable} font-sans overflow-hidden h-screen`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${scienceGothic.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           disableTransitionOnChange
         >
           <StarfieldCanvas />
-          <div className="flex flex-col h-screen overflow-hidden">
+          <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex-grow pt-20 overflow-hidden">
+            <main className="flex-grow">
               <PageTransition>{children}</PageTransition>
             </main>
             <Footer />
