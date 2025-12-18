@@ -12,22 +12,22 @@ interface HomePageProps {
 
 export function HomePage({ posts }: HomePageProps) {
   return (
-    <div className="w-full pt-20">
-      <section id="home" className="min-h-[calc(100dvh-5rem)] flex items-start justify-center pt-6 md:pt-10 pb-32 md:pb-40">
+    <div className="w-full pt-16 md:pt-20">
+      <section id="home" className="min-h-[calc(100dvh-4rem)] md:min-h-[calc(100dvh-5rem)] flex items-center justify-center pt-2 md:pt-10 pb-16 md:pb-40">
         <Hero />
       </section>
 
-      <section id="about" className="min-h-[calc(100dvh-5rem)] flex items-start justify-center px-3 md:px-6 pt-12 md:pt-16 pb-32 md:pb-40">
+      <section id="about" className="min-h-[calc(100dvh-4rem)] md:min-h-[calc(100dvh-5rem)] flex items-start justify-center px-3 md:px-6 pt-4 md:pt-16 pb-12 md:pb-40">
         <About />
       </section>
 
-      <section id="skills" className="min-h-[calc(100dvh-5rem)] flex items-start justify-center px-3 md:px-6 pt-12 md:pt-16 pb-32 md:pb-40">
+      <section id="skills" className="min-h-[calc(100dvh-4rem)] md:min-h-[calc(100dvh-5rem)] flex items-start justify-center px-3 md:px-6 pt-4 md:pt-16 pb-12 md:pb-40">
         <div className="w-full max-w-7xl">
           <Skills />
         </div>
       </section>
 
-      <section id="contact" className="min-h-[calc(100dvh-5rem)] flex items-start justify-center px-3 md:px-6 pt-12 md:pt-16 pb-40 md:pb-48">
+      <section id="contact" className="min-h-[calc(100dvh-4rem)] md:min-h-[calc(100dvh-5rem)] flex items-start justify-center px-3 md:px-6 pt-4 md:pt-16 pb-20 md:pb-48">
         <div className="w-full max-w-7xl">
           <Contact />
         </div>

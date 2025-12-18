@@ -31,28 +31,28 @@ export function About() {
       <div className="w-full">
         <div className="flex flex-col">
           {/* Header */}
-          <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-center flex items-center justify-center gap-2 mb-4 md:mb-6 flex-shrink-0">
-            <User size={18} className="text-blue-500 md:w-[24px] md:h-[24px]" /> About Me
+          <h2 className="text-base sm:text-xl md:text-3xl lg:text-4xl font-bold text-center flex items-center justify-center gap-1.5 md:gap-2 mb-2 md:mb-6 flex-shrink-0">
+            <User size={14} className="text-blue-500 sm:w-[18px] sm:h-[18px] md:w-[24px] md:h-[24px]" /> About Me
           </h2>
 
           {/* Content */}
-          <div className="space-y-4 md:space-y-6">
+          <div className="space-y-2 md:space-y-6">
             {/* Personal Interests */}
             <div>
-              <h3 className="text-base md:text-xl lg:text-2xl font-semibold mb-2 md:mb-3 text-purple-400">What I Like & Do</h3>
-              <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4 leading-relaxed">
+              <h3 className="text-xs sm:text-sm md:text-xl lg:text-2xl font-semibold mb-1.5 md:mb-3 text-purple-400">What I Like & Do</h3>
+              <p className="text-[10px] leading-snug sm:text-xs md:text-base text-muted-foreground mb-2 md:mb-4 md:leading-relaxed">
                 Beyond coding, I'm passionate about exploring new technologies and building meaningful projects. I enjoy contributing to open-source communities and staying updated with the latest trends in software development.
               </p>
 
               {/* Interest Badges */}
-              <div className="flex flex-wrap gap-2 md:gap-3">
+              <div className="flex flex-wrap gap-1.5 md:gap-3">
                 {interests.map((interest, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-white/5 border border-white/10 hover:border-purple-500/50 hover:scale-105 transition-all duration-200"
+                    className="flex items-center gap-1 md:gap-2 px-2 md:px-4 py-1 md:py-2 rounded-full bg-white/5 border border-white/10 hover:border-purple-500/50 hover:scale-105 transition-all duration-200"
                   >
-                    <interest.icon size={14} className={`${interest.color} flex-shrink-0 md:w-[16px] md:h-[16px]`} />
-                    <span className="text-xs md:text-sm font-medium">{interest.text}</span>
+                    <interest.icon size={10} className={`${interest.color} flex-shrink-0 sm:w-[12px] sm:h-[12px] md:w-[16px] md:h-[16px]`} />
+                    <span className="text-[9px] sm:text-[10px] md:text-sm font-medium">{interest.text}</span>
                   </div>
                 ))}
               </div>
@@ -60,32 +60,32 @@ export function About() {
 
             {/* Work Experience Timeline */}
             <div>
-              <h3 className="text-base md:text-xl lg:text-2xl font-semibold mb-3 md:mb-4 text-purple-400 flex items-center gap-2">
-                <Briefcase size={16} className="flex-shrink-0 md:w-[20px] md:h-[20px]" /> Work Experience
+              <h3 className="text-xs sm:text-sm md:text-xl lg:text-2xl font-semibold mb-2 md:mb-4 text-purple-400 flex items-center gap-1.5 md:gap-2">
+                <Briefcase size={12} className="flex-shrink-0 sm:w-[14px] sm:h-[14px] md:w-[20px] md:h-[20px]" /> Work Experience
               </h3>
 
-              <div className="relative space-y-3 md:space-y-4">
+              <div className="relative space-y-2 md:space-y-4">
                 {/* Timeline line */}
-                <div className="absolute left-[10px] md:left-[12px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-blue-500 to-transparent"></div>
+                <div className="absolute left-[8px] sm:left-[10px] md:left-[12px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-blue-500 to-transparent"></div>
 
                 {workExperience.map((job, index) => (
-                  <div key={index} className="relative pl-6 md:pl-10">
+                  <div key={index} className="relative pl-5 sm:pl-6 md:pl-10">
                     {/* Timeline dot */}
-                    <div className={`absolute left-0 top-1 w-5 h-5 md:w-6 md:h-6 rounded-full border-2 ${job.color} bg-black flex items-center justify-center`}>
-                      <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-current"></div>
+                    <div className={`absolute left-0 top-0.5 sm:top-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full border-2 ${job.color} bg-black flex items-center justify-center`}>
+                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 rounded-full bg-current"></div>
                     </div>
 
                     {/* Content card */}
-                    <div className="bg-gradient-to-br from-purple-500/5 to-blue-500/5 backdrop-blur-sm border border-purple-500/20 rounded-lg p-3 md:p-5 hover:border-purple-500/40 transition-all duration-300">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                        <h4 className="text-sm md:text-lg lg:text-xl font-bold text-white">{job.role}</h4>
-                        <div className="flex items-center gap-1 text-xs md:text-sm text-muted-foreground mt-1 md:mt-0">
-                          <Calendar size={12} className="flex-shrink-0 md:w-[14px] md:h-[14px]" />
+                    <div className="bg-gradient-to-br from-purple-500/5 to-blue-500/5 backdrop-blur-sm border border-purple-500/20 rounded-lg p-2 sm:p-3 md:p-5 hover:border-purple-500/40 transition-all duration-300">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-1 md:mb-2">
+                        <h4 className="text-xs sm:text-sm md:text-lg lg:text-xl font-bold text-white">{job.role}</h4>
+                        <div className="flex items-center gap-0.5 sm:gap-1 text-[9px] sm:text-xs md:text-sm text-muted-foreground mt-0.5 md:mt-0">
+                          <Calendar size={9} className="flex-shrink-0 sm:w-[10px] sm:h-[10px] md:w-[14px] md:h-[14px]" />
                           <span>{job.period}</span>
                         </div>
                       </div>
-                      <p className="text-sm md:text-base font-semibold mb-2" style={{ color: job.color.includes('green') ? '#4ade80' : '#3b82f6' }}>{job.company}</p>
-                      <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{job.description}</p>
+                      <p className="text-[10px] sm:text-xs md:text-base font-semibold mb-1 md:mb-2" style={{ color: job.color.includes('green') ? '#4ade80' : '#3b82f6' }}>{job.company}</p>
+                      <p className="text-[9px] leading-snug sm:text-[10px] md:text-sm text-muted-foreground md:leading-relaxed">{job.description}</p>
                     </div>
                   </div>
                 ))}

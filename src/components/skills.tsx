@@ -68,39 +68,39 @@ export function Skills() {
   return (
     <div className="w-full max-w-6xl mx-auto">
 
-      <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-center flex items-center justify-center gap-2 mb-3 md:mb-4">
-        <BrainCircuit size={20} className="text-purple-500 flex-shrink-0 md:w-[26px] md:h-[26px]" /> My Skills
+      <h2 className="text-base sm:text-xl md:text-3xl lg:text-4xl font-bold text-center flex items-center justify-center gap-1.5 md:gap-2 mb-2 md:mb-6 flex-shrink-0">
+        <BrainCircuit size={14} className="text-purple-500 sm:w-[18px] sm:h-[18px] md:w-[24px] md:h-[24px]" /> My Skills
       </h2>
-      <p className="text-sm md:text-base text-center text-muted-foreground mb-4 md:mb-6 max-w-2xl mx-auto px-4">
+      <p className="text-[10px] leading-snug sm:text-xs md:text-base text-center text-muted-foreground mb-3 md:mb-6 max-w-2xl mx-auto px-3 md:px-4 md:leading-relaxed">
         A diverse set of technologies and tools I use to bring ideas to life
       </p>
 
-      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
         <TooltipProvider>
           {Object.entries(skills).map(([skill, tech], index) => (
             <div
               key={skill}
-              className="relative group p-3 md:p-5 rounded-lg border border-purple-500/20 bg-gradient-to-br from-purple-500/5 to-blue-500/5 backdrop-blur-sm overflow-hidden hover:scale-[1.02] hover:shadow-[0px_20px_40px_rgba(139,92,246,0.2)] transition-all duration-200"
+              className="relative group p-2 sm:p-3 md:p-5 rounded-lg border border-purple-500/20 bg-gradient-to-br from-purple-500/5 to-blue-500/5 backdrop-blur-sm overflow-hidden hover:scale-[1.02] hover:shadow-[0px_20px_40px_rgba(139,92,246,0.2)] transition-all duration-200"
             >
               {/* Animated border gradient */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-lg" />
 
-              <h3 className="relative text-base md:text-xl lg:text-2xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
+              <h3 className="relative text-xs sm:text-sm md:text-xl lg:text-2xl font-bold mb-2 md:mb-4 bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
                 {skill}
               </h3>
-              <div className="relative flex flex-wrap gap-3 md:gap-4">
+              <div className="relative flex flex-wrap gap-2 md:gap-4">
                 {tech.map((t, techIndex) => (
                   <Tooltip key={t.name}>
                     <TooltipTrigger asChild>
                       <div
-                        className="text-2xl md:text-3xl lg:text-4xl cursor-pointer relative hover:scale-110 transition-transform duration-200"
+                        className="text-lg sm:text-xl md:text-3xl lg:text-4xl cursor-pointer relative hover:scale-110 transition-transform duration-200"
                         style={{ color: t.color }}
                       >
                         <t.icon />
                       </div>
                     </TooltipTrigger>
                     <TooltipContent className="bg-gradient-to-r from-purple-600 to-blue-600 border-none">
-                      <p className="font-semibold text-xs md:text-sm">{t.name}</p>
+                      <p className="font-semibold text-[9px] sm:text-[10px] md:text-sm">{t.name}</p>
                     </TooltipContent>
                   </Tooltip>
                 ))}

@@ -28,7 +28,7 @@ const socialColors: { [key: string]: string } = {
 
 export function Socials() {
   return (
-    <div className="flex justify-center gap-4 md:gap-6 lg:gap-8">
+    <div className="flex justify-center gap-2 sm:gap-3 md:gap-6 lg:gap-8">
       {Object.entries(socialLinks).map(([key, value]) => {
         const Icon = socialIcons[key as keyof typeof socialIcons];
         const colorClass = socialColors[key] || "text-gray-500"; // Fallback to gray if color not defined
@@ -38,7 +38,7 @@ export function Socials() {
             href={value}
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-2xl md:text-3xl lg:text-4xl ${colorClass} hover:opacity-80 transition-opacity`}
+            className={`text-lg sm:text-xl md:text-3xl lg:text-4xl ${colorClass} hover:opacity-80 transition-opacity`}
             whileHover={{ scale: 1.2, y: -2 }}
           >
             <Icon />
